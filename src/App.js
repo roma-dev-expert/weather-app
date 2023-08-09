@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import Header from './components/Header';
 import BackgroundImage from './components/BackgroundImage';
-import WeatherPanel from './components/WeatherPanel';
+import WeatherPanelContainer from './containers/WeatherPanelContainer';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <div className="app">
         <Header />
         <BackgroundImage />
-		<WeatherPanel />
+		<WeatherPanelContainer />
       </div>
     </Provider>
   );
