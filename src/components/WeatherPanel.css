@@ -1,0 +1,17 @@
+.weather-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25%;
+    height: 100%;
+    box-shadow: 0 15px 25px #69686833;
+    font-size: 16px;
+    color: #ffffff82;
+    font-weight: 200;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    backdrop-filter: blur(14px);
+    background-color: #57575781;
+  }

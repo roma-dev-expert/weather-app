@@ -1,0 +1,44 @@
+  .weather-details {   
+    width: -webkit-fill-available;
+    margin: 0px 30px 20px 30px;
+    list-style: none;
+    text-align: left;
+  }
+
+  .details-heading {
+    color: #ffffffba;
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0 0 40px 0px;
+  }
+  
+  .weather-details ul {
+    list-style: none;
+    padding: 0 0 30px 0px;
+    margin: 0;
+    border-bottom: 1px solid #ffffff82;
+  }
+  
+  .weather-details li {
+	margin-bottom: 10px;
+  }
+  
+  
+  .detail-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+  
+  .detail-label {
+	flex: 1;
+	text-align: left;
+  }
+  
+  .detail-value {
+	flex: 1;
+	text-align: right;
+    color: #ffffffba;
+  }
+  
