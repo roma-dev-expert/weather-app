@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faSun, faCloud, faCloudRain } from '@fortawesome/free-solid-svg-icons'; 
@@ -8,9 +8,18 @@ const WeatherInfo = () => {
 
   const temperature = '26°';
   const city = 'Tashkent';
-  const currentDate = new Date();
-  const formattedDate = format(currentDate, "HH:mm - eeee, d MMM ''yy");
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const weatherState = 'sunny';
+
+  useEffect(() => {
+	const intervalId = setInterval(() => {
+	  setCurrentDateTime(new Date());
+	}, 1000);
+  
+	return () => {
+	  clearInterval(intervalId);
+	};
+  }, []);
 
   const getWeatherIcon = (state) => {
     switch (state) {
@@ -30,7 +39,7 @@ const WeatherInfo = () => {
       <div className="temperature">{temperature}</div>
       <div className="city-date-container">
         <p className="city">{city}</p>
-        <p className="date">{formattedDate}</p>
+        <p className="date">{format(currentDateTime, "HH:mm - eeee, d MMM ''yy")}</p>
       </div>
 	  <div className="weather-state">
           {getWeatherIcon(weatherState)}
