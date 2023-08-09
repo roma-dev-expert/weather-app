@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import BackgroundImage from '../components/BackgroundImage';
 
 const BackgroundImageContainer = () => {
-	
-  const weatherData = useSelector((state) => state.weatherData.weatherData);
 
-  const getBackgroundImageUrl = (state) => {
-    switch (state) {
+  const weatherData = useSelector((state) => state.weatherData);
+
+  const getBackgroundImageUrl = (weatherState) => {
+    switch (weatherState) {
       case 'clear':
         return '/images/sunny.jpg';
       case 'clouds':
@@ -19,7 +19,7 @@ const BackgroundImageContainer = () => {
     }
   };
 
-  const backgroundImageUrl = getBackgroundImageUrl(weatherData.weatherState);
+  const backgroundImageUrl = getBackgroundImageUrl(weatherData?.weather[0].main.toLowerCase());
 
   return <BackgroundImage backgroundImageUrl={backgroundImageUrl} />;
 };

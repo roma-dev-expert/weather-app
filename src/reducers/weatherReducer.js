@@ -1,7 +1,6 @@
 import { SET_WEATHER_DATA } from '../store/weatherActionTypes';
 
 const initialState = {
-  weatherData: {},
 };
 
 const weatherReducer = (state = initialState, action) => {
@@ -9,7 +8,7 @@ const weatherReducer = (state = initialState, action) => {
     case SET_WEATHER_DATA:
       return {
         ...state,
-        weatherData: action.payload,
+		...action.payload,
       };
     default:
       return state;

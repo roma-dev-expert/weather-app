@@ -10,8 +10,7 @@ const updateWeatherData = async (dispatch, regionName) => {
 		const lon = geoData[0].lon;
 
 		const weatherResponse = await fetchWeatherData(lat, lon);
-		const weatherState = weatherResponse.weather[0].main.toLowerCase();
-		dispatch(setWeatherData({ weatherState }));
+		dispatch(setWeatherData({ ...weatherResponse }));
 	} else {
 		console.error('City not found');
 	}
