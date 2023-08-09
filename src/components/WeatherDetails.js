@@ -1,11 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './WeatherDetails.css';
 
 const WeatherDetails = () => {
+	
+  const state = useSelector((state) => state);
+  const weatherData = state.weatherData;
+
   const weatherDetails = [
-    { label: 'Cloudy', value: 'Cloudy' },
-    { label: 'Humidity', value: '60%' },
-    { label: 'Wind', value: '10 km/h' },
+    { label: 'Cloudy', value: weatherData.clouds.all },
+    { label: 'Humidity', value: weatherData.main.humidity+'%' },
+    { label: 'Wind', value: weatherData.wind.speed+ 'km/h' },
     { label: 'Rain', value: '20%' },
   ];
 

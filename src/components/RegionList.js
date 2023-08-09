@@ -5,6 +5,7 @@ import './RegionList.css';
 
 const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   const handleButtonClick = () => {
     setIsButtonClicked(true);
@@ -13,11 +14,27 @@ const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
     }, 300);
   };
 
+  const clearSearchResults = () => {
+    setSearchValue('');
+  };
+
+
   return (
     <div className="region-list">
 	  <div className="search-container">
-        <input type="text" placeholder="Another location" className="search-input" />
-        <button className={`search-button${isButtonClicked ? ' clicked' : ''}`} onClick={handleButtonClick} onMouseDown={handleButtonClick}>
+        <input 
+		  type="text" 
+		  placeholder="Another location" 
+		  className="search-input" 
+		  value={searchValue}
+          onChange={e => setSearchValue(e.target.value)} />
+        <button 
+			className={`search-button${isButtonClicked ? ' clicked' : ''}`} 
+			onClick={ async () => {
+				handleButtonClick();
+				await onRegionChange(searchValue);
+			  }} 
+			  onMouseDown={handleButtonClick}>
 			<FontAwesomeIcon icon={faSearch} className="search-icon" />
 		</button>
       </div>
@@ -26,7 +43,10 @@ const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
           <li 
 		  	key={index} 
 			className={`region-item ${selectedRegion === region.name ? 'selected' : ''}`}
-			onClick={async () => await onRegionChange(region.name)}
+			onClick={async () => { 
+				await onRegionChange(region.name); 
+				clearSearchResults();
+			}}
 		  >
 			{region.name}
 		  </li>

@@ -1,7 +1,6 @@
 .weather-info {
     position: absolute;
     left: 121px;
-    width: 47%;
     color: #ffffffd6;
     bottom: 100px;
     display: flex;
@@ -17,11 +16,12 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-    font-size: 170px;
+    font-size: 10rem;
+    margin-right: 30px;
   }
   
   .city {
-	font-size: 60px;
+    font-size: 4rem;
 	margin: 0 0 0 0;
   }
   
@@ -30,9 +30,14 @@
 	margin: 0 0 0 0;
   }
 
+  .city-date-container {
+    margin-right: 30px;
+  }
+
   .weather-state {
     font-size: 1rem;
     margin-top: 33px;
+    text-align: center;
   }
 
   .weather-state svg {

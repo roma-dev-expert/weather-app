@@ -13,6 +13,7 @@ const WeatherPanelContainer = () => {
   const selectedRegion = state.regionData.selectedRegion;
 
   const handleRegionChange = async (regionName) => {
+	if(regionName === "") return;
     dispatch(setSelectedRegion(regionName));
 	await updateWeatherData(dispatch, regionName);
   };
