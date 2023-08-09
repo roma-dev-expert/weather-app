@@ -1,9 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import weatherReducer from '../reducers/weatherReducer';
-
-const rootReducer = {
-  weatherData: weatherReducer,
-};
+import rootReducer from '../reducers';
 
 const store = configureStore({ reducer: rootReducer });
 

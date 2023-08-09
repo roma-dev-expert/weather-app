@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './RegionList.css';
 
-const RegionList = () => {
-  const regions = ['Tashkent', 'Samarkand', 'Bukhara', 'Andijan', 'Fergana'];
+const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const handleButtonClick = () => {
@@ -22,9 +21,15 @@ const RegionList = () => {
 			<FontAwesomeIcon icon={faSearch} className="search-icon" />
 		</button>
       </div>
-      <ul>
+      <ul className="region-list">
         {regions.map((region, index) => (
-          <li key={index}>{region}</li>
+          <li 
+		  	key={index} 
+			className={selectedRegion === region.name ? 'selected' : ''}
+			onClick={() => onRegionChange(region.name)}
+		  >
+			{region.name}
+		  </li>
         ))}
       </ul>
     </div>

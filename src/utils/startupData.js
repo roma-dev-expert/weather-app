@@ -4,9 +4,8 @@ const InitializeAppData = async (dispatch) => {
   try {
 	const weatherService = useWeatherService(dispatch); 
 
-    const cityName = 'Tashkent';
-    const countryCode = 'UZ';
-	await weatherService.updateWeatherData(cityName, countryCode);
+    const regionName = 'Tashkent';
+	await weatherService.updateWeatherData(regionName);
   } catch (error) {
     console.error('Error initializing app data:', error);
   }

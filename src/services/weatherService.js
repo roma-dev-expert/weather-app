@@ -1,11 +1,11 @@
 import { fetchCityCoordinates, fetchWeatherData } from '../api';
 import { setWeatherData } from '../actions/weatherActions';
 
-const useWeatherService = async (dispatch) => {
+const useWeatherService = (dispatch) => {
   
-	const updateWeatherData = async (cityName, countryCode) => {
+	const updateWeatherData = async (regionName) => {
 	  try {
-		const geoData = await fetchCityCoordinates(cityName, countryCode);
+		const geoData = await fetchCityCoordinates(regionName);
 		if (geoData.length > 0) {
 		  const lat = geoData[0].lat;
 		  const lon = geoData[0].lon;
