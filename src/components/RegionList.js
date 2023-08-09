@@ -26,7 +26,7 @@ const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
           <li 
 		  	key={index} 
 			className={`region-item ${selectedRegion === region.name ? 'selected' : ''}`}
-			onClick={() => onRegionChange(region.name)}
+			onClick={async () => await onRegionChange(region.name)}
 		  >
 			{region.name}
 		  </li>

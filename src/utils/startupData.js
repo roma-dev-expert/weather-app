@@ -1,9 +1,9 @@
-import useWeatherService from '../services/weatherService';
+import updateWeatherData from '../services/weatherService';
 
 const InitializeAppData = async (dispatch, state) => {
   try {
-	const weatherService = useWeatherService(dispatch, state); 
-	await weatherService.updateWeatherData();
+	const regionName = state.regionData.selectedRegion;
+	await updateWeatherData(dispatch, regionName);
   } catch (error) {
     console.error('Error initializing app data:', error);
   }

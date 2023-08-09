@@ -6,10 +6,12 @@ import store from './store/store';
 import App from './App';
 import InitializeAppData from './utils/startupData';
 
+
 (async () => {
 	try {	
 	  const state = store.getState();
-	  await InitializeAppData(store.dispatch, state);
+	  const dispatch = store.dispatch;
+	  await InitializeAppData(dispatch, state);
 	  
 	  const rootElement = document.getElementById('root');
 	  const root = ReactDOM.createRoot(rootElement);
