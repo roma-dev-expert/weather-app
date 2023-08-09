@@ -1,9 +1,7 @@
 import { SET_WEATHER_DATA } from '../store/weatherActionTypes';
 
 const initialState = {
-  weatherData: {
-    weatherState: 'sunny',
-  },
+  weatherData: {},
 };
 
 const weatherReducer = (state = initialState, action) => {
