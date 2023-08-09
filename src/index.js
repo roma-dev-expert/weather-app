@@ -4,12 +4,22 @@ import { Provider } from 'react-redux';
 import './index.css';
 import store from './store/store';
 import App from './App';
+import InitializeAppData from './utils/startupData';
 
-const rootElement = document.getElementById('root');
-const root = ReactDOM.createRoot(rootElement);
-
-root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+(async () => {
+	try {	
+	  const state = store.getState();
+	  await InitializeAppData(store.dispatch, state);
+	  
+	  const rootElement = document.getElementById('root');
+	  const root = ReactDOM.createRoot(rootElement);
+  
+	  root.render(
+		<Provider store={store}>
+		  <App />
+		</Provider>
+	  );
+	} catch (error) {
+	  console.error('Error initializing app:', error);
+	}
+  })();

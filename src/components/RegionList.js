@@ -25,7 +25,7 @@ const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
         {regions.map((region, index) => (
           <li 
 		  	key={index} 
-			className={selectedRegion === region.name ? 'selected' : ''}
+			className={`region-item ${selectedRegion === region.name ? 'selected' : ''}`}
 			onClick={() => onRegionChange(region.name)}
 		  >
 			{region.name}

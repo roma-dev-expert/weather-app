@@ -106,5 +106,18 @@
 
   .region-list li {
 	margin-bottom: 10px;
+	cursor: pointer;
+  }
+
+  .region-item {
+	list-style: none;
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+  }
+  
+  .region-item.selected {
+	background-color: #3498db;
+	color: #fff;
   }
   
