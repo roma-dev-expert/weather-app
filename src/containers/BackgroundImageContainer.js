@@ -9,13 +9,13 @@ const BackgroundImageContainer = () => {
   const getBackgroundImageUrl = (weatherState) => {
     switch (weatherState) {
       case 'clear':
-        return '/images/sunny.jpg';
+        return './images/sunny.jpg';
       case 'clouds':
-        return '/images/cloudy.jpg';
+        return './images/cloudy.jpg';
       case 'rain':
-        return '/images/rainy.jpg';
+        return './images/rainy.jpg';
       default:
-        return '/images/sunny.jpg';
+        return './images/sunny.jpg';
     }
   };
 
