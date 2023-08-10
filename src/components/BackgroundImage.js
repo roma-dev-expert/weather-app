@@ -4,8 +4,7 @@ import './BackgroundImage.css';
 const BackgroundImage = ({ backgroundImageUrl }) => {
 
   return (
-    <div className="background-image" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
-    </div>
+    <img className="background-image" src={backgroundImageUrl} alt=""/>
   );
 };
 
