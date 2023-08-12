@@ -8,9 +8,9 @@ const WeatherDetails = () => {
   const weatherData = state.weatherData;
 
   const weatherDetails = [
-    { label: 'Cloudy', value: weatherData.clouds.all },
-    { label: 'Humidity', value: weatherData.main.humidity+'%' },
-    { label: 'Wind', value: weatherData.wind.speed+ 'km/h' },
+    { label: 'Cloudy', value: weatherData?.clouds?.all },
+    { label: 'Humidity', value: weatherData?.main?.humidity+'%' },
+    { label: 'Wind', value: weatherData?.wind?.speed+ ' km/h' },
     { label: 'Rain', value: '20%' },
   ];
 

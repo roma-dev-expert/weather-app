@@ -1,17 +1,27 @@
-.weather-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 25%;
-    height: 100%;
-    box-shadow: 0 15px 25px #69686833;
-    font-size: 16px;
-    color: #ffffff82;
-    font-weight: 200;
-    position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    backdrop-filter: blur(14px);
-    background-color: #57575781;
-  }
+.toggle-button {
+	display: none;
+}
+
+@media (max-width: 1224px) {
+	.weather-panel-container {
+		height: inherit;
+		position: absolute;
+		display: flex;
+		right: 0;
+	}
+
+
+	.toggle-button {
+		width: 40px;
+		height: 40px;
+		transition: right 0.3s ease-in-out;
+
+		background-color: rgba(255, 255, 255, 0.5);
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #333;
+	}
+
+}

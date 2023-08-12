@@ -1,17 +1,21 @@
-import React from 'react';
+
 import Header from './components/Header';
 import WeatherInfo from './components/WeatherInfo';
-import WeatherPanelContainer from './containers/WeatherPanelContainer';
+
 import BackgroundImageContainer from './containers/BackgroundImageContainer';
+
+import React from 'react';
+import WeatherPanelContainer from './containers/WeatherPanelContainer';
 
 
 const App = () => {
 	return (
-	  <div className="app">
-		<Header />
-		<BackgroundImageContainer />
-		<WeatherInfo />
-		<WeatherPanelContainer />
+	  <div className="app">	
+		<BackgroundImageContainer>
+			<Header />
+			<WeatherInfo />
+			<WeatherPanelContainer/>
+		</BackgroundImageContainer>
 	  </div>
 	);
   };

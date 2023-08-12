@@ -1,12 +1,16 @@
-.header {
-	position: relative;
-	color: #fff;
-  }
-  
   .header h1 {
     position: absolute;
+	color: #fff;
     top: 48px;
     left: 121px;
     font-size: 1rem;
     font-weight: 400;
 }
+
+
+ @media (max-width: 1224px) {
+	.header h1 {
+		top: 25px;
+		left: 40px;
+	}
+  } 

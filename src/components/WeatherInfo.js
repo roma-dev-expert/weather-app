@@ -8,8 +8,8 @@ import './WeatherInfo.css';
 const WeatherInfo = () => {
   const state = useSelector((state) => state);
   const weatherData = state.weatherData;
-  const weatherState = weatherData.weather[0].main;
-  const temperature = kelvinToCelsius(weatherData.main.temp);
+  const weatherState = weatherData?.weather?[0]?.main : "";
+  const temperature = kelvinToCelsius(weatherData?.main?.temp);
   const regionName = state.regionData.selectedRegion;
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -25,6 +25,7 @@ const WeatherInfo = () => {
   }, []);
 
   function kelvinToCelsius(kelvin) {
+	if (kelvin == null) return 0;
 	return Math.round(kelvin - 273.15);
   }
 
@@ -49,7 +50,7 @@ const WeatherInfo = () => {
         <p className="date">{format(currentDateTime, "HH:mm - eeee, d MMM ''yy")}</p>
       </div>
 	  <div className="weather-state">
-          {getWeatherIcon(weatherState.toLowerCase())}
+          {getWeatherIcon(weatherState?.toLowerCase())}
 		  {weatherState}
 	  </div>
     </div>
