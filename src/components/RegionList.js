@@ -7,49 +7,48 @@ const RegionList = ({ regions, selectedRegion, onRegionChange }) => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     setIsButtonClicked(true);
-    setTimeout(() => {
-      setIsButtonClicked(false);
-    }, 300);
+    await onRegionChange(searchValue);
+    setTimeout(() => setIsButtonClicked(false), 300);
   };
 
   const clearSearchResults = () => {
     setSearchValue('');
   };
 
+  const handleRegionClick = async (regionName) => {
+    await onRegionChange(regionName);
+    clearSearchResults();
+  };
 
   return (
     <div className="region-list">
-	  <div className="search-container">
+      <div className="search-container">
         <input 
-		  type="text" 
-		  placeholder="Another location" 
-		  className="search-input" 
-		  value={searchValue}
-          onChange={e => setSearchValue(e.target.value)} />
+          type="text" 
+          placeholder="Another location" 
+          className="search-input" 
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)} 
+        />
         <button 
-			className={`search-button${isButtonClicked ? ' clicked' : ''}`} 
-			onClick={ async () => {
-				handleButtonClick();
-				await onRegionChange(searchValue);
-			  }} 
-			  onMouseDown={handleButtonClick}>
-			<FontAwesomeIcon icon={faSearch} className="search-icon" />
-		</button>
+          className={`search-button${isButtonClicked ? ' clicked' : ''}`} 
+          onClick={handleButtonClick} 
+          onMouseDown={() => setIsButtonClicked(true)}
+        >
+          <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        </button>
       </div>
       <ul className="region-list">
         {regions.map((region, index) => (
           <li 
-		  	key={index} 
-			className={`region-item ${selectedRegion === region.name ? 'selected' : ''}`}
-			onClick={async () => { 
-				await onRegionChange(region.name); 
-				clearSearchResults();
-			}}
-		  >
-			{region.name}
-		  </li>
+            key={index} 
+            className={`region-item ${selectedRegion === region.name ? 'selected' : ''}`}
+            onClick={() => handleRegionClick(region.name)}
+          >
+            {region.name}
+          </li>
         ))}
       </ul>
     </div>
